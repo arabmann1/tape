@@ -1,0 +1,3 @@
+# Keep every file byte-for-byte as it is in the zip: the launchers need specific line endings.
+* -text
+frontend/dist/** linguist-generated=true

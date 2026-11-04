@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tape: Start Here</title>
+<style>
+  :root {
+    --bg: #0b0b0e; --panel: #111115; --panel-2: #17171d; --border: #212128; --border-strong: #2f2f39;
+    --text: #e7e7ec; --text-2: #a3a3ad; --text-3: #6c6c77; --accent: #7c83f6; --accent-dim: rgba(124,131,246,.14);
+    --warn: #e5a84b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 40px 16px 72px; background: var(--bg); color: var(--text);
+         font: 15px/1.6 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 600; letter-spacing: -.01em; }
+  .lede { margin: 0 0 24px; color: var(--text-2); font-size: 16px; }
+  h2 { margin: 36px 0 10px; font-size: 16px; font-weight: 600; }
+  h3 { margin: 18px 0 6px; font-size: 14px; font-weight: 600; }
+  p { margin: 0 0 10px; }
+  a { color: var(--accent); }
+  img { display: block; width: 100%; border: 1px solid var(--border-strong); border-radius: 10px; margin: 0 0 8px; }
+  .caption { color: var(--text-3); font-size: 13px; }
+  ol, ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code { font: 13px ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--panel-2);
+         border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+  .card { margin: 12px 0; padding: 14px 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+  .card > :last-child { margin-bottom: 0; }
+  .warn { border-color: rgba(229,168,75,.4); background: rgba(229,168,75,.07); }
+  .warn strong { color: var(--warn); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .two h3 { margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 12px; font-size: 14px; }
+  th, td { padding: 7px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+  th { background: var(--panel-2); font-weight: 600; }
+  dt { margin-top: 12px; font-weight: 600; }
+  dd { margin: 2px 0 0; color: var(--text-2); }
+  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-3); font-size: 13px; }
+  @media (max-width: 620px) { .two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tape</h1>
+  <p class="lede">A stock and ETF dashboard for learning how to evaluate US stocks. It runs on your own computer, and you can ask Claude or ChatGPT about what you're looking at while it draws on the chart.</p>
+
+  <img src="tape-screenshot.jpg" alt="The Tape dashboard: a stock chart in the middle and an Ask AI panel on the right">
+  <p class="caption">The chart and two report cards (investor and trader views) work with no AI at all. Connect one when you want to ask questions.</p>
+
+  <h2>1. Start Tape</h2>
+  <div class="card">
+    <ol>
+      <li><strong>Unzip it.</strong> On Windows, right-click the zip and choose <em>Extract All</em>. On a Mac, double-click the zip. Put the Tape folder anywhere you like.</li>
+      <li><strong>Open it.</strong> Windows: double-click <code>Start Tape</code>. Mac: right-click <code>Start Tape.command</code> and choose <em>Open</em>. Linux: run <code>./start-tape.sh</code> in a terminal.</li>
+      <li><strong>Wait a couple of minutes the first time.</strong> It downloads a private copy of Python and the libraries Tape needs. It uses about 400 MB of disk space. You don't have to install anything, and nothing else on your computer changes. After this it starts in seconds.</li>
+      <li>Your browser opens to Tape. Leave the small black window open while you use it. Closing that window quits Tape.</li>
+    </ol>
+  </div>
+  <p class="caption">Tape has been tested on Windows. The Mac and Linux starters are new and haven't been run on those systems yet, so tell the person who sent you this if they give you trouble.</p>
+  <div class="card warn">
+    <p><strong>Your computer may warn you the first time,</strong> because this app isn't from a big publisher.</p>
+    <ul>
+      <li><strong>Windows</strong> ("Windows protected your PC"): click <em>More info</em>, then <em>Run anyway</em>.</li>
+      <li><strong>Mac</strong> ("can't be opened"): open <em>System Settings</em>, go to <em>Privacy &amp; Security</em>, scroll down and click <em>Open Anyway</em>.</li>
+    </ul>
+    <p>Only do this if you got the zip from someone you trust.</p>
+  </div>
+
+  <h2>2. Connect an AI (optional)</h2>
+  <p>Tape doesn't come with any AI access. You use your own key from Claude or ChatGPT, and pay that company directly for what you use. You only need one.</p>
+  <div class="card warn">
+    <p><strong>A subscription isn't an API key.</strong> Claude Pro and ChatGPT Plus don't include API use. API accounts are separate and pay-as-you-go, even if you sign in with the same email.</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Claude</h3>
+      <ol>
+        <li>Sign up at <a href="https://console.anthropic.com" target="_blank" rel="noreferrer">console.anthropic.com</a>.</li>
+        <li>Under <em>Billing</em>, add a little credit. $5 is plenty to start.</li>
+        <li>Under <em>API Keys</em>, create a key and copy it. It starts with <code>sk-ant-</code>.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>ChatGPT</h3>
+      <ol>
+        <li>Sign up at <a href="https://platform.openai.com" target="_blank" rel="noreferrer">platform.openai.com</a>.</li>
+        <li>Under <em>Settings</em>, then <em>Billing</em>, add a little credit. $5 is plenty to start.</li>
+        <li>Under <em>API keys</em>, create a key and copy it. It starts with <code>sk-</code>.</li>
+      </ol>
+    </div>
+  </div>
+  <p>Then in Tape, click <em>Connect Claude or ChatGPT</em> in the panel on the right, choose your AI, paste the key, and click <em>Save and test</em>. You're looking for a green "Connected" message.</p>
+
+  <h3>What it costs</h3>
+  <p>You pay per word, more or less. These are rough estimates for one full analysis of a stock. A follow-up question usually costs less. Every answer shows its own estimated cost underneath, so you'll see real numbers quickly.</p>
+  <table>
+    <tr><th>Model</th><th>One full analysis, roughly</th></tr>
+    <tr><td>Claude Opus 5.5, the Claude default</td><td>20¢</td></tr>
+    <tr><td>Claude Sonnet 5.5, or GPT-6.1 Sol (the ChatGPT default)</td><td>10¢</td></tr>
+    <tr><td>Claude Haiku 5.5, or GPT-6 Luna</td><td>around 1¢</td></tr>
+    <tr><td>GPT-6 Astra</td><td>45¢</td></tr>
+  </table>
+  <p>Change models any time in Settings. Both companies let you set a monthly spending limit in their billing settings, and it's worth doing that.</p>
+
+  <h2>3. Try it</h2>
+  <ul>
+    <li>Type a ticker in the search box at the top, like <code>AAPL</code> or <code>VOO</code>.</li>
+    <li>Ask the AI <em>"Analyze NVDA"</em> and watch it load the chart, draw levels and mark dates as it explains.</li>
+    <li>Ask <em>"Compare VOO, QQQ and SCHD"</em> or <em>"What does P/E mean?"</em></li>
+    <li>Open the <em>Investor</em> and <em>Trader</em> tabs and click any metric to see what it is, how to read it, and the common trap.</li>
+  </ul>
+
+  <h2>Your privacy</h2>
+  <ul>
+    <li><strong>Your API key</strong> is saved on this computer only, and is only ever sent to the company it belongs to. It isn't in the Tape folder, so you can pass that folder on without passing on your key. Don't send anyone the data folder listed below.</li>
+    <li><strong>Your questions</strong> and the market data needed to answer them go to the AI you chose, under your account and that company's terms.</li>
+    <li><strong>The tickers you look at</strong> are requested from Yahoo Finance.</li>
+    <li><strong>Nothing goes to anyone else,</strong> including the person who sent you this. Tape has no accounts and no tracking.</li>
+  </ul>
+
+  <h2>If something goes wrong</h2>
+  <dl>
+    <dt>"Tape needs to be unzipped"</dt>
+    <dd>You opened it from inside the zip. Extract the whole zip first (step 1).</dd>
+    <dt>Setup stopped with an error</dt>
+    <dd>It needs internet for the first run. Try again; it picks up where it left off. Work networks sometimes block the downloads, so try a home network if it keeps failing.</dd>
+    <dt>The browser didn't open</dt>
+    <dd>Go to <code>http://127.0.0.1:8740</code> yourself. If something else was already using that port, the black window shows the address Tape used instead.</dd>
+    <dt>"Rejected this API key"</dt>
+    <dd>Paste the key again in Settings and make sure you copied all of it, or create a new one.</dd>
+    <dt>"Out of credit"</dt>
+    <dd>Add credit in that company's billing page. New credit can take a few minutes to apply.</dd>
+    <dt>"This key can't use..." or a message about verifying your organization</dt>
+    <dd>Your account doesn't have that model yet. Pick a different model in Settings. OpenAI asks some accounts to verify their organization before using its newest models.</dd>
+    <dt>A number looks out of date</dt>
+    <dd>Prices refresh after 4 hours and company data after 24. Data comes from Yahoo Finance's unofficial feed, which can lag or occasionally break. When a fetch fails, Tape shows the last copy it has.</dd>
+  </dl>
+
+  <h2>Updating and removing it</h2>
+  <p><strong>To update,</strong> replace the Tape folder with the new one. Your key, chat and watchlist are kept.</p>
+  <p><strong>To remove it,</strong> delete the Tape folder, then delete the data folder. That also deletes your saved key and chat.</p>
+  <table>
+    <tr><th>Windows</th><td><code>%LOCALAPPDATA%\tape</code> (paste that into the File Explorer address bar)</td></tr>
+    <tr><th>Mac</th><td><code>~/Library/Application Support/tape</code></td></tr>
+    <tr><th>Linux</th><td><code>~/.local/share/tape</code></td></tr>
+  </table>
+
+  <footer>
+    <p><strong>This is a learning tool, not financial advice.</strong> It describes what the data shows and won't tell you what to buy or sell. AI can make mistakes and market data can be wrong or late, so check anything that matters before you act on it. Decisions, and any money you make or lose, are yours.</p>
+    <p>Tape comes with no warranty. It isn't affiliated with Anthropic, OpenAI, Yahoo or TradingView. Third-party credits are in <code>NOTICE.txt</code>.</p>
+  </footer>
+</main>
+</body>
+</html>

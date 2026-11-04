@@ -1,0 +1,18 @@
+Tape is built with these third-party components, used under their own licenses.
+
+Compiled into the dashboard (license texts are in the licenses folder):
+  TradingView Lightweight Charts(TM), Copyright (c) TradingView, Inc.
+  https://www.tradingview.com/ (Apache License 2.0)
+  React, react-markdown, remark-gfm and their dependencies (MIT and similar)
+  Inter typeface, by The Inter Project Authors (SIL Open Font License 1.1)
+
+Downloaded on first run, each under its own license:
+  Python, FastAPI, Uvicorn, pandas, NumPy, yfinance, httpx
+  The Anthropic and OpenAI Python SDKs
+  uv, by Astral, used to set these up
+
+Market data comes from Yahoo Finance through the unofficial yfinance library, for
+personal use. See Yahoo's terms of service.
+
+Tape isn't affiliated with or endorsed by Anthropic, OpenAI, Yahoo or TradingView.
+Claude is a trademark of Anthropic. ChatGPT is a trademark of OpenAI.

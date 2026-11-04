@@ -1,0 +1,10 @@
+# What a friend's copy of Tape runs on. MCP is left out: that's only for Claude Code.
+# After changing this, regenerate requirements.lock (see README, "Package it").
+fastapi
+uvicorn
+pandas
+numpy
+yfinance
+httpx
+anthropic>=2,<3
+openai>=3,<4
